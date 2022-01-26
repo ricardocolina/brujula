@@ -1,7 +1,9 @@
+// Level
 input.onButtonPressed(Button.A, function () {
     Tool = 1
     basic.clearScreen()
 })
+// Compass
 input.onButtonPressed(Button.B, function () {
     Tool = 2
     basic.clearScreen()
@@ -46,13 +48,13 @@ basic.forever(function () {
         led.plot(plot_x, plot_y)
     } else if (Tool == 2) {
         if (input.compassHeading() >= 315 || input.compassHeading() < 45) {
-            basic.showArrow(ArrowNames.North)
-        } else if (input.compassHeading() < 135) {
-            basic.showArrow(ArrowNames.East)
-        } else if (input.compassHeading() < 225) {
             basic.showArrow(ArrowNames.South)
-        } else {
+        } else if (input.compassHeading() < 135) {
             basic.showArrow(ArrowNames.West)
+        } else if (input.compassHeading() < 225) {
+            basic.showArrow(ArrowNames.North)
+        } else {
+            basic.showArrow(ArrowNames.East)
         }
     } else {
         basic.showLeds(`
